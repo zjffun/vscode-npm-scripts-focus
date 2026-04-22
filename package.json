@@ -1,0 +1,190 @@
+{
+  "name": "vscode-npm-scripts-focus",
+  "displayName": "NPM Scripts Focus",
+  "description": "Focus on npm scripts you care about and rerun them quickly. Useful in monorepos.",
+  "version": "0.0.1",
+  "publisher": "zjffun",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "npm",
+    "scripts",
+    "focus",
+    "tasks",
+    "runner"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onView:npm",
+    "workspaceContains:package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zjffun/vscode-npm-scripts-focus.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zjffun/vscode-npm-scripts-focus/issues"
+  },
+  "homepage": "https://github.com/zjffun/vscode-npm-scripts-focus#readme",
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -w -p ./",
+    "_vscode:pack": "vsce package",
+    "_vscode:install": "ls vscode-npm-scripts-focus-*.vsix | xargs code --install-extension",
+    "_vscode:uninstall": "code --uninstall-extension zjffun.vscode-npm-scripts-focus",
+    "_vscode:publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "@types/vscode": "^1.80.0",
+    "@vscode/vsce": "^3.9.1",
+    "typescript": "^6.0.3"
+  },
+  "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "id": "npmScriptFocus",
+          "name": "NPM Script Focus",
+          "icon": "$(star)",
+          "contextualTitle": "NPM Script Focus"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "npmScriptFocus.rerun",
+        "title": "Rerun",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "npmScriptFocus.run",
+        "title": "Run",
+        "icon": "$(run)"
+      },
+      {
+        "command": "npmScriptFocus.debug",
+        "title": "Debug",
+        "icon": "$(debug)"
+      },
+      {
+        "command": "npmScriptFocus.openScript",
+        "title": "Open"
+      },
+      {
+        "command": "npmScriptFocus.addToFocus",
+        "title": "Add to Focus",
+        "icon": "$(star-empty)"
+      },
+      {
+        "command": "npmScriptFocus.removeFromFocus",
+        "title": "Remove from Focus",
+        "icon": "$(close)"
+      },
+      {
+        "command": "npmScriptFocus.refresh",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "npmScriptFocus.search",
+        "title": "Search Scripts",
+        "category": "NPM Scripts Focus",
+        "icon": "$(search)"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "npmScriptFocus.rerun",
+          "when": "false"
+        },
+        {
+          "command": "npmScriptFocus.run",
+          "when": "false"
+        },
+        {
+          "command": "npmScriptFocus.debug",
+          "when": "false"
+        },
+        {
+          "command": "npmScriptFocus.openScript",
+          "when": "false"
+        },
+        {
+          "command": "npmScriptFocus.addToFocus",
+          "when": "false"
+        },
+        {
+          "command": "npmScriptFocus.removeFromFocus",
+          "when": "false"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "npmScriptFocus.search",
+          "when": "view == npmScriptFocus",
+          "group": "navigation@1"
+        },
+        {
+          "command": "npmScriptFocus.refresh",
+          "when": "view == npmScriptFocus",
+          "group": "navigation@2"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "npmScriptFocus.addToFocus",
+          "when": "view == npm && viewItem == script",
+          "group": "navigation@100"
+        },
+        {
+          "command": "npmScriptFocus.openScript",
+          "when": "view == npmScriptFocus && viewItem == focusedScript",
+          "group": "navigation@1"
+        },
+        {
+          "command": "npmScriptFocus.run",
+          "when": "view == npmScriptFocus && viewItem == focusedScript",
+          "group": "navigation@2"
+        },
+        {
+          "command": "npmScriptFocus.debug",
+          "when": "view == npmScriptFocus && viewItem == focusedScript",
+          "group": "navigation@3"
+        },
+        {
+          "command": "npmScriptFocus.rerun",
+          "when": "view == npmScriptFocus && viewItem == focusedScript",
+          "group": "navigation@4"
+        },
+        {
+          "command": "npmScriptFocus.removeFromFocus",
+          "when": "view == npmScriptFocus && viewItem == focusedScript",
+          "group": "navigation@5"
+        },
+        {
+          "command": "npmScriptFocus.rerun",
+          "when": "view == npmScriptFocus && viewItem == focusedScript",
+          "group": "inline@1"
+        },
+        {
+          "command": "npmScriptFocus.debug",
+          "when": "view == npmScriptFocus && viewItem == focusedScript",
+          "group": "inline@2"
+        },
+        {
+          "command": "npmScriptFocus.run",
+          "when": "view == npmScriptFocus && viewItem == focusedScript",
+          "group": "inline@3"
+        }
+      ]
+    }
+  }
+}
