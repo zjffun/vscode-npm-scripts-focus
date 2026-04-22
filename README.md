@@ -1,4 +1,4 @@
-# NPM Scripts Focus
+# npm Scripts Focus
 
 Focus on npm scripts you care about and rerun them quickly.
 
@@ -8,7 +8,7 @@ Monorepos often expose hundreds of npm scripts across many packages, but day to 
 
 ### Add to Focus
 
-Add scripts from the built-in NPM view to a focused list.
+Add scripts from the built-in npm view to a focused list.
 
 ![Add to Focus](images/add-to-focus.webp)
 

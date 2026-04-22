@@ -1,11 +1,12 @@
 {
   "name": "vscode-npm-scripts-focus",
-  "displayName": "NPM Scripts Focus",
+  "displayName": "npm Scripts Focus",
   "description": "Focus on npm scripts you care about and rerun them quickly. Useful in monorepos.",
   "version": "0.0.1",
   "publisher": "zjffun",
   "private": true,
   "license": "MIT",
+  "icon": "images/icon.png",
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -51,9 +52,9 @@
       "explorer": [
         {
           "id": "npmScriptFocus",
-          "name": "NPM Script Focus",
+          "name": "npm Scripts Focus",
           "icon": "$(star)",
-          "contextualTitle": "NPM Script Focus"
+          "contextualTitle": "npm Scripts Focus"
         }
       ]
     },
@@ -95,7 +96,7 @@
       {
         "command": "npmScriptFocus.search",
         "title": "Search Scripts",
-        "category": "NPM Scripts Focus",
+        "category": "npm Scripts Focus",
         "icon": "$(search)"
       }
     ],
