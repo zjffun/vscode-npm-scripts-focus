@@ -20,9 +20,13 @@ Run, debug, and rerun focused scripts with one click.
 
 ### Search Scripts
 
-Search and quickly jump to any script across your workspace.
+Search and quickly jump to any script across your workspace. Focused scripts are pinned to the top and marked with a star, and you can add or remove them directly from the search results.
 
 ![Search scripts](images/search-scripts.webp)
+
+### Reorder Focused Scripts
+
+Drag and drop scripts and packages within the Focus view, or use the Move Up / Move Down context menu actions to reorder them.
 
 ## Install via CLI
 

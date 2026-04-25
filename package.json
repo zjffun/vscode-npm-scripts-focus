@@ -95,9 +95,25 @@
       },
       {
         "command": "npmScriptFocus.search",
-        "title": "Search Scripts",
+        "title": "Search npm Scripts",
         "category": "npm Scripts Focus",
         "icon": "$(search)"
+      },
+      {
+        "command": "npmScriptFocus.moveUp",
+        "title": "Move Up",
+        "icon": "$(arrow-up)"
+      },
+      {
+        "command": "npmScriptFocus.moveDown",
+        "title": "Move Down",
+        "icon": "$(arrow-down)"
+      }
+    ],
+    "viewsWelcome": [
+      {
+        "view": "npmScriptFocus",
+        "contents": "No focus scripts yet.\n[Add Focus Script](command:npmScriptFocus.search)"
       }
     ],
     "menus": {
@@ -124,6 +140,14 @@
         },
         {
           "command": "npmScriptFocus.removeFromFocus",
+          "when": "false"
+        },
+        {
+          "command": "npmScriptFocus.moveUp",
+          "when": "false"
+        },
+        {
+          "command": "npmScriptFocus.moveDown",
           "when": "false"
         }
       ],
@@ -169,6 +193,16 @@
           "command": "npmScriptFocus.removeFromFocus",
           "when": "view == npmScriptFocus && viewItem == focusedScript",
           "group": "navigation@5"
+        },
+        {
+          "command": "npmScriptFocus.moveUp",
+          "when": "view == npmScriptFocus && (viewItem == focusedScript || viewItem == focusedPackageJSON)",
+          "group": "reorder@1"
+        },
+        {
+          "command": "npmScriptFocus.moveDown",
+          "when": "view == npmScriptFocus && (viewItem == focusedScript || viewItem == focusedPackageJSON)",
+          "group": "reorder@2"
         },
         {
           "command": "npmScriptFocus.rerun",
