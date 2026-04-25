@@ -37,7 +37,7 @@
     "compile": "tsc -p ./",
     "watch": "tsc -w -p ./",
     "pretest": "tsc -p ./",
-    "test:unit": "node --test out/test/*.test.js",
+    "test:unit": "node scripts/test-unit.mjs",
     "test:integration": "vscode-test",
     "test": "npm run test:unit && npm run test:integration",
     "_vscode:pack": "vsce package",

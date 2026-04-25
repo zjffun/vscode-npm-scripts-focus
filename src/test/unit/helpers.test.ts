@@ -6,7 +6,7 @@ import {
 	fuzzySubsequenceScore,
 	fuzzyMultiTokenScore,
 	reorderListByPackages
-} from '../helpers';
+} from '../../helpers';
 
 const mkScript = (packageUri: string, script: string): FocusedScript => ({
 	folderUri: 'file:///root',
