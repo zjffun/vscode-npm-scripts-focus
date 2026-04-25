@@ -2,7 +2,7 @@
   "name": "vscode-npm-scripts-focus",
   "displayName": "npm Scripts Focus",
   "description": "Focus on npm scripts you care about and rerun them quickly. Useful in monorepos.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "zjffun",
   "private": true,
   "license": "MIT",
