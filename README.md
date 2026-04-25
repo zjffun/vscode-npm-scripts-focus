@@ -3,6 +3,7 @@
 [![Version](https://vsmarketplacebadges.dev/version-short/zjffun.vscode-npm-scripts-focus.png)](https://marketplace.visualstudio.com/items?itemName=zjffun.vscode-npm-scripts-focus)
 [![Installs](https://vsmarketplacebadges.dev/installs-short/zjffun.vscode-npm-scripts-focus.png)](https://marketplace.visualstudio.com/items?itemName=zjffun.vscode-npm-scripts-focus)
 [![Rating](https://vsmarketplacebadges.dev/rating-short/zjffun.vscode-npm-scripts-focus.png)](https://marketplace.visualstudio.com/items?itemName=zjffun.vscode-npm-scripts-focus&ssr=false#review-details)
+[![Open VSX Version](https://img.shields.io/open-vsx/v/zjffun/vscode-npm-scripts-focus?label=Open%20VSX)](https://open-vsx.org/extension/zjffun/vscode-npm-scripts-focus)
 [![License](https://img.shields.io/github/license/zjffun/vscode-npm-scripts-focus)](./LICENSE)
 
 Focus on npm scripts you care about and rerun them quickly.
