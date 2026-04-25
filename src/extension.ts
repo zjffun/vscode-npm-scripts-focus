@@ -1,18 +1,12 @@
 import * as vscode from 'vscode';
-
-interface FocusedScript {
-	folderUri: string;
-	packageUri: string;
-	taskPath: string;
-	script: string;
-	label: string;
-}
+import {
+	FocusedScript,
+	focusedKey,
+	fuzzyMultiTokenScore,
+	reorderListByPackages
+} from './helpers';
 
 const STORAGE_KEY = 'npmScriptFocus.items';
-
-function focusedKey(f: FocusedScript): string {
-	return `${f.packageUri}|${f.script}`;
-}
 
 function getTaskFromMaybeItem(item: any): vscode.Task | undefined {
 	return item && item.task instanceof vscode.Task ? (item.task as vscode.Task) : undefined;
@@ -190,20 +184,6 @@ class FocusStore {
 	}
 }
 
-function reorderListByPackages(list: FocusedScript[], order: string[]): FocusedScript[] {
-	const groups = new Map<string, FocusedScript[]>();
-	for (const f of list) {
-		const arr = groups.get(f.packageUri) ?? [];
-		arr.push(f);
-		groups.set(f.packageUri, arr);
-	}
-	const result: FocusedScript[] = [];
-	for (const p of order) {
-		result.push(...(groups.get(p) ?? []));
-	}
-	return result;
-}
-
 const FOCUS_DND_MIME = 'application/vnd.code.tree.npmscriptfocus';
 
 type DndPayload = Array<
@@ -362,45 +342,6 @@ async function openScriptAt(packageUri: vscode.Uri, script?: string): Promise<vo
 	const doc = await vscode.workspace.openTextDocument(packageUri);
 	const pos = script ? await findScriptPositionInDocument(doc, script) : new vscode.Position(0, 0);
 	await vscode.window.showTextDocument(doc, { preserveFocus: true, selection: new vscode.Selection(pos, pos) });
-}
-
-function fuzzySubsequenceScore(needle: string, haystack: string): number | undefined {
-	if (!needle) {
-		return 0;
-	}
-	let hi = 0;
-	let score = 0;
-	let lastMatch = -1;
-	for (let ni = 0; ni < needle.length; ni++) {
-		const ch = needle.charCodeAt(ni);
-		while (hi < haystack.length && haystack.charCodeAt(hi) !== ch) {
-			hi++;
-		}
-		if (hi >= haystack.length) {
-			return undefined;
-		}
-		score += lastMatch === -1 ? hi : (hi - lastMatch);
-		lastMatch = hi;
-		hi++;
-	}
-	return score;
-}
-
-function fuzzyMultiTokenScore(query: string, haystack: string): number | undefined {
-	const tokens = query.toLowerCase().split(/\s+/).filter(Boolean);
-	if (tokens.length === 0) {
-		return 0;
-	}
-	const lowerHay = haystack.toLowerCase();
-	let total = 0;
-	for (const tok of tokens) {
-		const s = fuzzySubsequenceScore(tok, lowerHay);
-		if (s === undefined) {
-			return undefined;
-		}
-		total += s;
-	}
-	return total;
 }
 
 function buildDebugDuckItem(task: vscode.Task, packageUri: vscode.Uri, folder: vscode.WorkspaceFolder) {

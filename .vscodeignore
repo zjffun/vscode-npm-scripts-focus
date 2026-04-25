@@ -1,6 +1,10 @@
 .vscode/**
+.vscode-test/**
+.vscode-test.mjs
 src/**
+out/test/**
 tsconfig.json
 **/*.map
 **/*.ts
 node_modules/**
+.github/**

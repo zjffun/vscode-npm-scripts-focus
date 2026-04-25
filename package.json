@@ -36,15 +36,23 @@
   "scripts": {
     "compile": "tsc -p ./",
     "watch": "tsc -w -p ./",
+    "pretest": "tsc -p ./",
+    "test:unit": "node --test out/test/*.test.js",
+    "test:integration": "vscode-test",
+    "test": "npm run test:unit && npm run test:integration",
     "_vscode:pack": "vsce package",
     "_vscode:install": "ls vscode-npm-scripts-focus-*.vsix | xargs code --install-extension",
     "_vscode:uninstall": "code --uninstall-extension zjffun.vscode-npm-scripts-focus",
     "_vscode:publish": "vsce publish"
   },
   "devDependencies": {
+    "@types/mocha": "^10.0.10",
     "@types/node": "^25.6.0",
     "@types/vscode": "^1.80.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
     "@vscode/vsce": "^3.9.1",
+    "mocha": "^11.7.5",
     "typescript": "^6.0.3"
   },
   "contributes": {

@@ -27,3 +27,9 @@ jobs:
       - run: npm ci
       - name: Compile
         run: npm run compile
+      - name: Test (Linux)
+        if: runner.os == 'Linux'
+        run: xvfb-run -a npm test
+      - name: Test
+        if: runner.os != 'Linux'
+        run: npm test

@@ -20,6 +20,8 @@ jobs:
       - run: npm ci
       - name: Compile
         run: npm run compile
+      - name: Test
+        run: xvfb-run -a npm test
       - name: Publish
         if: success()
         run: npx vsce publish
