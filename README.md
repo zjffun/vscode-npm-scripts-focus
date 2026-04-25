@@ -1,5 +1,10 @@
 # npm Scripts Focus
 
+[![Version](https://vsmarketplacebadges.dev/version-short/zjffun.vscode-npm-scripts-focus.png)](https://marketplace.visualstudio.com/items?itemName=zjffun.vscode-npm-scripts-focus)
+[![Installs](https://vsmarketplacebadges.dev/installs-short/zjffun.vscode-npm-scripts-focus.png)](https://marketplace.visualstudio.com/items?itemName=zjffun.vscode-npm-scripts-focus)
+[![Rating](https://vsmarketplacebadges.dev/rating-short/zjffun.vscode-npm-scripts-focus.png)](https://marketplace.visualstudio.com/items?itemName=zjffun.vscode-npm-scripts-focus&ssr=false#review-details)
+[![License](https://img.shields.io/github/license/zjffun/vscode-npm-scripts-focus)](./LICENSE)
+
 Focus on npm scripts you care about and rerun them quickly.
 
 Monorepos often expose hundreds of npm scripts across many packages, but day to day you only work with a handful. This extension lets you pin just the ones you care about so they are always one click away, instead of scrolling through the full list every time.
